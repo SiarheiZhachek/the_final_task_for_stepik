@@ -8,9 +8,15 @@
 win:python -m venv venv, venv/Scripts/activate, linux: python -m ven ven, source venv/bin/activate)
 4. Загрузите все модули в виртуальную среду (pip3 install -r requirements.txt )
 5. Для генирации отчетов в Allure понадобится дополительно установка:
-Allure документация по установке - https://docs.qameta.io/allure-report/#_installing_a_commandline,
+Allure документация по установке 
+    Windows: https://docs.qameta.io/allure-report/#_installing_a_commandline
 https://github.com/ScoopInstaller/Scoop
-OpenJDK документация по установке - https://learn.microsoft.com/ru-ru/java/openjdk/download,
+    Linux: wget https://github.com/allure-framework/allure2/releases/download/2.19.0/allure-2.19.0.tgz
+sudo tar -zxvf allure-2.19.0.tgz -C /opt/ 
+sudo ln -s /opt/allure-2.19.0/bin/allure /usr/bin/allure
+OpenJDK документация по установке 
+    Windows: https://learn.microsoft.com/ru-ru/java/openjdk/download
 https://docs.oracle.com/cd/E19182-01/820-7851/inst_cli_jdk_javahome_t/
+    Linux: sudo apt install default-jre -y
 6. Тесты выполняются из корневой дириктории командой: pytest -v -s --alluredir=/reports
 7. Просмотреть отчет: allure allure serve /reports

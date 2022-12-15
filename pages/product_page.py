@@ -2,17 +2,17 @@ from pages.base_page import BasePage
 from pages.locators import product_page_locators as loc
 
 
+# link = 'http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/'
+
+
 class ProductPage(BasePage):
 
     def __init__(self, driver):
         super().__init__(driver)
         self.driver = driver
 
-    def open_product_page(self):
-        self.driver.get(
-            'http://selenium1py.pythonanywhere.com/'
-            'catalogue/the-shellcoders-handbook_209/?promo=newYear'
-        )
+    def open_product_page(self, link):
+        self.driver.get(link)
 
     def add_to_cart_button_is_displayed(self):
         return self.find_element(loc.add_to_cart_button)
@@ -40,3 +40,9 @@ class ProductPage(BasePage):
 
     def check_price_add_to_cart(self):
         return self.find_elements(loc.information_by_add)[2].text
+
+    def should_not_be_success_message(self):
+        return self.is_not_element_present(loc.massage_add_product)
+
+    def the_element_disappears(self):
+        return self.is_disappeared(loc.massage_add_product)

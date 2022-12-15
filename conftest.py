@@ -23,7 +23,6 @@ def driver(browser_options, language_options):
     else:
         with allure.step('Rune Chrome'):
             driver_browser = webdriver.Chrome()
-    # driver_browser.set_window_size(660, 880)
     driver_browser.maximize_window()
     driver_browser.implicitly_wait(10)
     yield driver_browser
@@ -41,7 +40,7 @@ def pytest_addoption(parser):
         '--language',
         action='store',
         default='en',
-        help='Укажите язык по умолчанию, Русский'
+        help='Укажите язык по умолчанию, English'
     )
 
 

@@ -3,7 +3,7 @@ from pages.main_page import MainPage
 from pages.login_page import LogInPage
 
 
-link = 'http://selenium1py.pythonanywhere.com/'
+LINK = 'http://selenium1py.pythonanywhere.com/'
 
 
 @allure.feature('Login page')
@@ -11,7 +11,7 @@ link = 'http://selenium1py.pythonanywhere.com/'
 def test_should_be_login_in_the_url(driver):
     with allure.step('Open site'):
         main_page = MainPage(driver)
-        main_page.open_site(link)
+        main_page.open_site(LINK)
     with allure.step('Click for Login or register link'):
         main_page.go_to_login_page()
     with allure.step('Check if the URL has a login'):
@@ -24,7 +24,7 @@ def test_should_be_login_in_the_url(driver):
 def test_login_form_is_displayed(driver):
     with allure.step('Open site'):
         main_page = MainPage(driver)
-        main_page.open_site(link)
+        main_page.open_site(LINK)
     with allure.step('Click for Login or register link'):
         main_page.go_to_login_page()
     with allure.step('Check login form is displayed'):
@@ -37,7 +37,7 @@ def test_login_form_is_displayed(driver):
 def test_register_form_is_displayed(driver):
     with allure.step('Open site'):
         main_page = MainPage(driver)
-        main_page.open_site(link)
+        main_page.open_site(LINK)
     with allure.step('Click for Login or register link'):
         main_page.go_to_login_page()
     with allure.step('Check register form is displayed'):

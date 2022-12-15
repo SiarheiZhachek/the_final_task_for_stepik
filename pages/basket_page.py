@@ -16,5 +16,3 @@ class BasketPage(BasePage):
 
     def the_product_in_the_cart(self):
         return self.find_element(loc.product_in_the_cart).is_displayed()
-
-

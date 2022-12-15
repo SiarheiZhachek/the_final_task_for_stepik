@@ -1,4 +1,3 @@
-import pytest
 from pages.base_page import BasePage
 from pages.locators import product_page_locators as loc
 

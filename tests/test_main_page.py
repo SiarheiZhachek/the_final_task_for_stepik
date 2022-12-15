@@ -17,7 +17,7 @@ def test_guest_should_see_login_link(driver):
 
 @allure.feature('Home page')
 @allure.story('No product in the cart')
-def test_guest_cant_see_product_in_basket_opened_from_main_page(driver):
+def test_guest_cant_see_product_in_basket_opened_from_main_pages(driver):
     with allure.step('Open web site'):
         main_page = MainPage(driver)
         main_page.open_site(link)

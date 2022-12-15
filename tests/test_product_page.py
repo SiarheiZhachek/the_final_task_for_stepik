@@ -20,7 +20,9 @@ def test_add_to_cart_button_is_displayed(driver):
 @allure.feature('Product page')
 @allure.story('Product addition message')
 def test_messages_that_the_product_has_been_added_is_displayed(driver):
-    link = 'http://selenium1py.pythonanywhere.com/catalogue/the-shellcoders-handbook_209/?promo=newYear'
+    link = \
+        'http://selenium1py.pythonanywhere.com/' \
+        'catalogue/the-shellcoders-handbook_209/?promo=newYear'
     with allure.step('Open product page'):
         product_page = ProductPage(driver)
         product_page.open_product_page(link)
@@ -35,7 +37,9 @@ def test_messages_that_the_product_has_been_added_is_displayed(driver):
 @allure.feature('Product page')
 @allure.story('Product addition message')
 def test_message_with_the_cost_of_the_cart_is_displayed(driver):
-    link = 'http://selenium1py.pythonanywhere.com/catalogue/the-shellcoders-handbook_209/?promo=newYear'
+    link = \
+        'http://selenium1py.pythonanywhere.com/' \
+        'catalogue/the-shellcoders-handbook_209/?promo=newYear'
     with allure.step('Open product page'):
         product_page = ProductPage(driver)
         product_page.open_product_page(link)
@@ -50,7 +54,9 @@ def test_message_with_the_cost_of_the_cart_is_displayed(driver):
 @allure.feature('Product page')
 @allure.story('Product addition message')
 def test_the_product_was_added_with_the_name_correctly(driver):
-    link = 'http://selenium1py.pythonanywhere.com/catalogue/the-shellcoders-handbook_209/?promo=newYear'
+    link = \
+        'http://selenium1py.pythonanywhere.com/' \
+        'catalogue/the-shellcoders-handbook_209/?promo=newYear'
     with allure.step('Open product page'):
         product_page = ProductPage(driver)
         product_page.open_product_page(link)
@@ -145,7 +151,7 @@ def test_guest_should_see_login_link_on_product_page(driver):
         assert product_page.should_be_login_link()
 
 
-@allure.feature('Home page')
+@allure.feature('Product page')
 @allure.story('No product in the cart')
 @pytest.mark.need_review
 def test_guest_cant_see_product_in_basket_opened_from_product_page(driver):

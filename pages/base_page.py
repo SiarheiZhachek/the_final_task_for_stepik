@@ -49,7 +49,9 @@ class BasePage:
     def is_not_element_present(self, *args, timeout=4):
         element, value = args[0]
         try:
-            WebDriverWait(self.driver, timeout).until(ec.presence_of_element_located((element, value)))
+            WebDriverWait(self.driver, timeout).until(
+                ec.presence_of_element_located((element, value))
+            )
         except TimeoutException:
             return True
         return False
@@ -75,4 +77,3 @@ class BasePage:
     def should_be_authorized_user(self):
         assert self.is_element_present(loc.user_icon), "User icon is not presented," \
                                                                      " probably unauthorised user"
-

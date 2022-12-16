@@ -72,8 +72,7 @@ def test_the_product_was_added_with_the_name_correctly(driver):
 @allure.feature('Product page')
 @allure.story('The product was added correctly')
 @pytest.mark.parametrize('links', [
-    0, 1, 2, 3, 4, 5, 6, pytest.param(7, marks=pytest.mark.xfail), 8, 9
-])
+    0, 1, 2, 3, 4, 5, 6, pytest.param(7, marks=pytest.mark.xfail), 8, 9])
 @pytest.mark.need_review
 def test_guest_can_add_product_to_basket(driver, links):
     link = 'http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer'

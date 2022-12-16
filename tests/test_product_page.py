@@ -71,26 +71,14 @@ def test_the_product_was_added_with_the_name_correctly(driver):
 
 @allure.feature('Product page')
 @allure.story('The product was added correctly')
-@pytest.mark.parametrize(
-    'link',
-    [
-        'http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer0',
-        'http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer1',
-        'http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer2',
-        'http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer3',
-        'http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer4',
-        'http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer5',
-        'http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer6',
-        'http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer7',
-        'http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer8'
-    ]
-)
-@pytest.mark.xfail
+@pytest.mark.parametrize('links', [
+    0, 1, 2, 3, 4, 5, 6, pytest.param(7, marks=pytest.mark.xfail), 8, 9])
 @pytest.mark.need_review
-def test_guest_can_add_product_to_basket(driver, link):
+def test_guest_can_add_product_to_basket(driver, links):
+    link = 'http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer'
     with allure.step('Open product page'):
         product_page = ProductPage(driver)
-        product_page.open_product_page(link)
+        product_page.open_product_page(f'{link}{links}')
     with allure.step('Click button: Add to cart'):
         product_page.add_to_cart_button_click()
     with allure.step('Check alert'):
@@ -167,9 +155,21 @@ def test_guest_cant_see_product_in_basket_opened_from_product_page(driver):
         assert cart_page.message_the_cart_is_empty_is_displayed()
 
 
+@allure.feature('Product page')
+@allure.story('No product in the cart')
+@pytest.mark.need_review
+def test_guest_can_go_to_login_page_from_product_page(driver):
+    link = 'http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/'
+    with allure.step('Open the product page'):
+        product_page = ProductPage(driver)
+        product_page.open_product_page(link)
+    with allure.step('Click login button'):
+        product_page.go_to_login_page()
+        assert '/accounts/login/' in driver.current_url
+
+
 @allure.feature('Home page')
 @allure.story('Open login page')
-@pytest.mark.need_review
 def test_guest_can_go_to_login_page(driver, language_options):
     link = 'http://selenium1py.pythonanywhere.com/'
     with allure.step('Open web site'):

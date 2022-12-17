@@ -25,4 +25,4 @@ OpenJDK документация по установке
 https://docs.oracle.com/cd/E19182-01/820-7851/inst_cli_jdk_javahome_t/
     Linux: sudo apt install default-jre -y
 6. Тесты выполняются из корневой дириктории командой: pytest -v -s --alluredir=/reports
-7. Просмотреть отчет: allure allure serve /reports
+7. Просмотреть отчет: allure serve /reports

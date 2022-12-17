@@ -27,3 +27,7 @@ class LogInPage(BasePage):
         self.find_element(loc.reg_fild_confirm_passwd).send_keys(passwd)
         self.find_element(loc.register_button).click()
         self.should_be_authorized_user()
+
+    def check_driver_correct_url(self):
+        url = self.driver.current_url
+        assert '/accounts/login/' in url

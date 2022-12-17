@@ -66,7 +66,7 @@ class BasePage:
         self.find_element(loc.login_link).click()
 
     def should_be_login_link(self):
-        return self.is_element_present(loc.login_link)
+        assert self.is_element_present(loc.login_link)
 
     def go_to_cart(self):
         self.find_element(loc.cart_button).click()

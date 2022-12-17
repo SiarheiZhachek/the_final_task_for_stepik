@@ -12,7 +12,7 @@ class BasketPage(BasePage):
         return self.find_element(loc.message_the_cart_is_empty).is_displayed()
 
     def the_product_is_not_in_the_cart(self):
-        return self.is_not_element_present(loc.product_in_the_cart)
+        assert self.is_not_element_present(loc.product_in_the_cart)
 
     def the_product_in_the_cart(self):
-        return self.find_element(loc.product_in_the_cart).is_displayed()
+        assert self.find_element(loc.product_in_the_cart).is_displayed()
